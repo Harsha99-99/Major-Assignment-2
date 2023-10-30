@@ -137,12 +137,12 @@
                 // if the data is scaled using log scale
             const logScale = d3.scaleLog()
                 .domain(d3.extent(geojson.features, (d) => {
-                    return d['properties']['POP1980']
+                    return d['properties']['POP2010']
                 }))
             // if the data is scaled using linear scale
             const linearScale = d3.scaleLinear()
                 .domain(d3.extent(geojson.features, (d) => {
-                    return d['properties']['POP1980']
+                    return d['properties']['POP2010']
                 }))
             /*-------------------------------------------------------*/
             /*---------------------- Tooltip ------------------------*/
@@ -157,8 +157,8 @@
                 .enter()
                 .append("path")
                 .attr("d", d => geoPath_generator(d))
-                //.attr("fill", d => colorInterpolator(logScale(d['properties']['POP1980'])))
-                .attr("fill", d => colorInterpolator(linearScale(d['properties']['POP1980'])))
+                //.attr("fill", d => colorInterpolator(logScale(d['properties']['POP2010'])))
+                .attr("fill", d => colorInterpolator(linearScale(d['properties']['POP2010'])))
                 .on("mouseenter", (m, d) => {
                     tooltip.transition()
                         .duration(200)
@@ -179,9 +179,6 @@
             }
             generateMap1(topology_data,".fig1",svgWidth,svgHeight)
         })
-
-            })
-
     </script>
 </body>
 
