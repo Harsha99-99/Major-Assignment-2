@@ -175,6 +175,23 @@
                         .duration(400)
                         .style("opacity", 0)
                 })
+                                // Inside the "mouseenter" event handler
+                .on("mouseenter", (m, d) => {
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", 0.9);
+                    tooltip.html(`<strong>${d['properties']['TOWN']}</strong><br>POP1980: ${d['properties']['POP1980']}`)
+                        .style("left", m.clientX + "px")
+                        .style("top", m.clientY + "px");
+                })
+                
+                // Inside the "mouseout" event handler
+                .on("mouseout", (m, d) => {
+                    tooltip.transition()
+                        .duration(400)
+                        .style("opacity", 0);
+                })
+
 
             }
             generateMap1(topology_data,".fig1",svgWidth,svgHeight)
